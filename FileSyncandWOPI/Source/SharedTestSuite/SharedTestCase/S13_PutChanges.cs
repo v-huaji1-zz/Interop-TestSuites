@@ -685,6 +685,25 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             {
                 Site.Assert.IsTrue(isVerifiedR990251, @"[In Request Message Syntax] Whenever the[A – Reserved (1 bit) field is set to 0 or 1, the protocol server must return the same response.");
             }
+
+            // If the main part of the two subResponse is same, then capture MS-FSSHTTPB requirement: MS-FSSHTTPB_R217102
+            bool isVerifiedR217102 = SharedTestSuiteHelper.CompareSucceedFsshttpbPutChangesResponse(fsshttpbResponseFirst, fsshttpbResponseSecond, this.Site);
+            this.Site.Log.Add(TestTools.LogEntryKind.Debug, "Expect the two put changes responses are same, actual {0}", isVerifiedR217102);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifiedR217102,
+                    "MS-FSSHTTPB",
+                    217102,
+                    @"[In Put Changes] The server response is the same whether the Reserved (11 bits) Flag is set to 0 or 1.");
+            }
+            else
+            {
+                Site.Assert.IsTrue(
+                    isVerifiedR217102,
+                    "[In Put Changes] The server response is the same whether the Reserved (11 bits) Flag is set to 0 or 1.");
+            }
         }
 
         /// <summary>
@@ -923,10 +942,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsTrue(
-                         isVerifiedR99054,
-                         "MS-FSSHTTPB",
-                         99054,
-                         @"[Additional Flags] The server response is the same whether the Reserved (11 bits) Flag is set to 0 or 1.");
+                    isVerifiedR99054,
+                    "MS-FSSHTTPB",
+                    99054,
+                    @"[Additional Flags] The server response is the same whether the Reserved (11 bits) Flag is set to 0 or 1.");
             }
             else
             {
@@ -1546,6 +1565,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                             @"[Additional Flags] F – Require Storage Mappings Rooted (1 bit): A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.");
             }
         }
-        #endregion 
+
+        #endregion
     }
 }

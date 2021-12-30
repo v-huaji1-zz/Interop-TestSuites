@@ -28,7 +28,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.MultiRequestPutHint = 0;
             this.ReturnCompleteKnowledgeIfPossible = 1;
             this.LastWriterWinsOnNextChange = 0;
-
+             
             this.IsAdditionalFlagsUsed = false;
             this.IsLockIdUsed = false;
             this.IsDiagnosticRequestOptionInputUsed = false;
@@ -85,6 +85,21 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public int LastWriterWinsOnNextChange { get; set; }
 
         /// <summary>
+        /// Gets or sets ContentVersionCoherencyCheck (variable): A Binary Item (section 2.2.1.3) which MUST be ignored.
+        /// </summary>
+        public BinaryItem ContentVersionCoherencyCheck { get; set; }
+
+        /// <summary>
+        /// Gets or sets Author Logins (variable): A String Item Array (section 2.2.1.14) structure that defines author login information.
+        /// </summary>
+        public StringItem AuthorLogins { get; set; }
+
+        /// <summary>
+        /// Gets or sets Reserved  (1 byte): Reserved (1 byte): MUST be ignored.
+        /// </summary>
+        public int Reserved { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the additional flags is used.
         /// </summary>
         public bool IsAdditionalFlagsUsed { get; set; }
@@ -137,11 +152,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public int RequireStorageMappingsRooted { get; set; }
 
         /// <summary>
-        /// Gets or sets a value:  An 11-bit reserved field that MUST be set to zero.
+        /// Gets or sets a value:  An 10-bit reserved field that MUST be set to zero.
         /// If the IsAdditionalFlagsUsed is false, this property will be ignored.
         /// </summary>
         public int Reserve { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets a value:  A compact unsigned 64-bit integer (section 2.2.1.1)
+        /// If the IsAdditionalFlagsUsed is false, this property will be ignored.
+        /// </summary>
+        public UInt64 Reserved1 { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether the lock id is used.
         /// </summary>
@@ -205,6 +226,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             bitWriter.AppendInit32(this.MultiRequestPutHint, 1);
             bitWriter.AppendInit32(this.ReturnCompleteKnowledgeIfPossible, 1);
             bitWriter.AppendInit32(this.LastWriterWinsOnNextChange, 1);
+            
 
             List<byte> reservedBytes = new List<byte>(bitWriter.Bytes);
 
@@ -238,6 +260,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 additionalFlagsWriter.AppendInit32(this.FullFileReplacePut, 1);
                 additionalFlagsWriter.AppendInit32(this.RequireStorageMappingsRooted, 1);
                 additionalFlagsWriter.AppendInit32(this.Reserve, 10);
+                additionalFlagsWriter.AppendUInt64(this.Reserved1, 0);
                 byteList.AddRange(additionalFlagsWriter.Bytes);
             }
 

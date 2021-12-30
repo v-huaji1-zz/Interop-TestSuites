@@ -216,7 +216,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// <param name="isLastWriterWinsOnNextChange">A parameter represents if to allow the Put Changes to be subsequently overwritten on the next Put Changes, even if a client is not coherent with this change.</param>
         /// <returns>A return value represents PutChanges CellSubRequest object.</returns>
         public static PutChangesCellSubRequest BuildFsshttpbPutChangesSubRequestRequest(
-                                ulong subRequestId,
+                                ulong subRequestId,                                            
                                 ExGuid storageIndexExGuid,
                                 ExGuid expectStorageIndexExGuid = null,
                                 bool isImplyNullExpectedIfNoMapping = false,
@@ -226,6 +226,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                                 bool isAbortRemainingPutChangesOnFailure = false,
                                 bool isMultiRequestPutHint = false,
                                 bool isReturnCompleteKnowledgeIf = true,
+                                int reserved = 0,
                                 bool isLastWriterWinsOnNextChange = false)
         {
             PutChangesCellSubRequest putChanges = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid);
@@ -238,6 +239,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChanges.AbortRemainingPutChangesOnFailure = Convert.ToInt32(isAbortRemainingPutChangesOnFailure);
             putChanges.MultiRequestPutHint = Convert.ToInt32(isMultiRequestPutHint);
             putChanges.ReturnCompleteKnowledgeIfPossible = Convert.ToInt32(isReturnCompleteKnowledgeIf);
+            putChanges.Reserved = reserved;
             putChanges.LastWriterWinsOnNextChange = Convert.ToInt32(isLastWriterWinsOnNextChange);
 
             return putChanges;
