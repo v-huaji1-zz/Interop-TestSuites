@@ -1,6 +1,6 @@
 ## [MS-FSSHTTPD]: Binary Data Format for File Synchronization via SOAP 
-- [MS-FSSHTTPD] v20181211 is used to develop the test suite.
-- Release date, 12/11/2018.
+- [MS-FSSHTTPD] v20211005 is used to develop the test suite.
+- Release date, 10/5/2021.
 
 
 To find the new landing page for [MS-FSSHTTPD], please visit https://msdn.microsoft.com/en-us/library/ee365790(v=office.12).aspx

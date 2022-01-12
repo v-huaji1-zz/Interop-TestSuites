@@ -1,6 +1,6 @@
 ## [MS-FSSHTTP]: File Synchronization via SOAP over HTTP Protocol
-- [MS-FSSHTTP] v20201117 is used to develop the test suite.
-- Release date, 11/17/2020.
+- [MS-FSSHTTP] v20211005 is used to develop the test suite.
+- Release date, 10/5/2020.
 
 To find the new landing page for [MS-FSSHTTP], please visit https://msdn.microsoft.com/en-us/library/dd943623(v=office.12).aspx
 

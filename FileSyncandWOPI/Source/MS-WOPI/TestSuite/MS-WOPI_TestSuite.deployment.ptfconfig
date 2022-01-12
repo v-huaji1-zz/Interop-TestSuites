@@ -1,16 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
   <Properties>
     <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
     <Property name="CommonConfigurationFileName" value="FssWopiCommonConfiguration.deployment.ptfconfig" />
-
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
     <!-- The UserName property specifies a username which can be used by a client to access the SUT. Ihe user corresponding to the username should be an administrator in the SharePoint server and an administrator on the client machine. This user should be able to access the applications specified in the IdOfAppWithIndividualAndWindows and IdOfAppWithGroupAndNotWindows properties. -->
     <Property name="UserName" value="FileSyncWOPIUser" />
     <!-- The Password property specifies the password for the user specified in the UserName property. The property value is case-sensitive. -->
-    <Property name="Password" value="Password01!" />
+    <Property name="Password" value="Ap6zF1#uP4l-+" />
     <!-- The UserFriendlyName property specifies the friendly name of the user specified in the UserName Property. -->
     <Property name="UserFriendlyName" value="FileSyncWOPIUser" />
     <!-- The SiteCollectionName property specifies the name of the site collection used by this test suite. -->
@@ -38,7 +36,7 @@
     <!-- The ValueOfUserCredentialItem property specifies the value of a credential (created in the secure store) if its type is UserName. The property value must match IdOfAppWithIndividualAndWindows' and IdOfAppWithGroupAndNotWindows' credential values if the credential type is UserName. -->
     <Property name="ValueOfUserCredentialItem" value="MSWOPIUser" />
     <!-- The ValueOfPasswordCredentialItem property specifies the value of a credential (created in the secure store) if its type is Password. The property value must match IdOfAppWithIndividualAndWindows' and IdOfAppWithGroupAndNotWindows' credential values if the credential type is Password. The property value is case-sensitive. -->
-    <Property name="ValueOfPasswordCredentialItem" value="Password01!" />
+    <Property name="ValueOfPasswordCredentialItem" value="Ap6zF1#uP4l-+" />
     <!-- The SharedTestCaseEndPointNameForHTTP property specifies the HTTP endpoint name in Windows Communication Foundation (WCF), which is used by the SharedAdapter project when sending ExecuteCellStorageRequest and ExecuteCellStorageRelativeRequest requests in the WOPI channel. The endpoint name must be consistent with that in app.config. The property value is case-sensitive.-->
     <Property name="SharedTestCaseEndPointNameForHTTP" value="BasicHttpBinding_ICellStorages" />
     <!-- The SharedTestCaseEndPointNameForHTTPS property specifies the HTTPS endpoint name in WCF, which is used by the SharedAdapter project when sending ExecuteCellStorageRequest and ExecuteCellStorageRelativeRequest requests in the WOPI channel. The endpoint name must be consistent with that in app.config. The property value is case-sensitive. -->
@@ -46,10 +44,9 @@
     <!-- The ProgIdForDiscoveryProcess property specifies the progid value which is used to respond to a WOPI Discovery request. The property value must be valid for the WOPI server. Ensure that the WOPI server has folder-level visibility when it receives the value from a Discovery response from the WOPI client. For Microsoft products, the property value can be set to "OneNote.Notebook". -->
     <Property name="ProgIdForDiscoveryProcess" value="OneNote.Notebook" />
     <!-- SUT section ends. -->
-
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The TestClientName property specifies the name of the current test client. This property value is used to construct a URL used by the WOPI Discovery process. The full URL is "http://[TestClientName]/hosting/discovery". -->
-    <Property name="TestClientName" value="LAB-O15-CLIENT" />
+    <Property name="TestClientName" value="Endpoint20" />
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>
